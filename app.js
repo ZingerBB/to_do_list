@@ -2,8 +2,9 @@ const todosNode = document.querySelector('.js-todos');
 const inputNode = document.querySelector(`.js-input`);
 const btnNode = document.querySelector(`.js-btn`)
 let todos = [];
+//Создание массива
 
-//Добовление задачи
+//Добовление задачи (задает уникально айди) добовление туду в г лобальный массив
 function addTodo(text) {
     const todo = {
         text,
@@ -14,7 +15,7 @@ function addTodo(text) {
     todos.push(todo);
 }
 
-//Удаление задачи
+//Удаление задачи (Ищит по айди совпадение в масиве), если находит подобый айди, меняет статус на тру
 function deleteTodo(id) {
     todos.forEach(todo =>{
         if (todo.id === id) {
@@ -23,6 +24,8 @@ function deleteTodo(id) {
     })
 }
 
+
+//Добовлен задачи в хтмл
 function render() {
     let html = '';
 
@@ -41,6 +44,7 @@ function render() {
     todosNode.innerHTML = html;
 }
 
+//Кнопка добавление задачи (Проверка кнопки на нажатие) если кнопка нажата, добовляет задачу из инпута
 btnNode.addEventListener('click', () => {
     const text = inputNode.value;
 
